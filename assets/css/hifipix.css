@@ -1,0 +1,198 @@
+.wpqd {
+    -webkit-transition: all .05s ease;
+    -moz-transition: all .05s ease;
+    -ms-transition: all .05s ease;
+    -o-transition: all .05s ease;
+    transition: all .05s ease;
+}
+
+.wpqd-j1 {
+    -webkit-filter: contrast(.5);
+    filter: contrast(.5);
+    opacity: 0.2;
+}
+
+.wpqd-j2, .wpqd-p1 {
+    -webkit-filter: contrast(.7);
+    filter: contrast(.7);
+    opacity: 0.5;
+}
+
+.wpqd-j3, .wpqd-j4, 
+.wpqd-p2, .wpqd-p3, .wpqd-p4 {
+    -webkit-filter: contrast(1);
+    filter: contrast(1);
+    opacity: 1;
+}
+
+.wpqd-placeholder {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/*###############################################
+LOADER STRUCTURE
+###############################################*/
+
+.img-loader-wrap {
+    position: relative;
+}
+
+.loader-wrap {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+	height: 50px;
+	width: 50px;
+	display:block;
+	margin: 10px;
+	animation-name: pulse;
+	animation-duration: 2s;
+    animation-delay: 0.5s;
+    animation-timing-function: ease-out;
+}
+
+.square {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	border-top: 5px solid lime;
+	border-right: 5px solid lime;
+	animation-name: buildSquare;
+	animation-fill-mode: forwards;
+	animation-duration: 2.5s;
+}
+
+.square-1 {
+	height:10%;
+	width:10%;
+	position: absolute;
+	bottom:0;
+	left:0;
+	background-color: lime;
+	animation-name: buildSquare;
+	animation-duration: .25s;
+}
+
+.square-2 {
+	opacity:0;
+	height: 32.5%;
+	width: 32.5%;
+}
+
+.square-3 {
+	opacity:0;
+	height: 55%;
+	width: 55%;
+}
+
+.square-4 {
+	opacity:0;
+	height: 77.5%;
+    width: 77.5%;
+    animation-delay: 0.125s;
+}
+
+.square-5 {
+	opacity:0;
+	height: 100%;
+	width: 100%;
+}
+
+.border-square {
+	position: absolute;
+	bottom: 0;
+	left:0;
+	background-color: transparent;
+	width:100%;
+	height:100%;
+	box-sizing: border-box;
+}
+
+
+div.border-square::after {
+  z-index: 1;
+  box-sizing: border-box;
+  content: '';
+  position: absolute;
+  border: 5px solid transparent;
+  width: 100%;
+  height: 100%;
+}
+
+div.border-square::after {
+  bottom: 0;
+  right: 0;
+  animation: drawBorder 1.5s;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.loader-paused, div.border-square::after {
+    -webkit-animation-play-state: paused; 
+    -moz-animation-play-state: paused;
+    -o-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+.loader-play, div.border-square.loader-play-after::after {
+    -webkit-animation-play-state: running; 
+    -moz-animation-play-state: running;
+    -o-animation-play-state: running;
+    animation-play-state: running;
+}
+
+/*###############################################
+LOADER ANIMATION
+###############################################*/
+
+@keyframes buildSquare {
+	0%		{opacity: 0;}
+	100%	{opacity: 1;}
+}
+
+@keyframes pulse {
+  0% {
+ 	  box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.6);
+  }
+  70% {
+      box-shadow: 0 0 0 5px rgba(0, 255, 0, 0);
+  }
+  100% {
+      box-shadow: 0 0 0 0 rgba(0, 255, 0, 0);
+  }
+}
+
+@keyframes drawBorder {
+  0%,
+  49.99% {
+    width: 0;
+    height: 0;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+  }
+  50% {
+    width: 0;
+    height: 0;
+    border-left-color: transparent;
+    border-bottom-color: lime;
+  }
+  74.99% {
+    border-left-color: transparent;
+    border-bottom-color: lime;
+  }
+  75% {
+    height: 0;
+    width: 100%;
+    border-left-color: lime;
+    border-bottom-color: lime;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+    border-left-color: lime;
+    border-bottom-color: lime;
+  }
+}

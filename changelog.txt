@@ -1,0 +1,64 @@
+= 1.5.9 =
+* Release date: January 21, 2020
+* Improved image processing retry logic.
+* Fixed bug which caused arbitrary images to become disabled in WP QuickDraw.
+* Fixed bug where image progress bar would appear in admin when there were no images to process.
+
+= 1.5.8 =
+* Release date: January 15, 2020
+* Added checks to avoid initialization of WPQD processing for non-image attachments.
+* Removed WPQD enabled option from Media Library for non-image attachments.
+* Fixed logical error in number of generated vs. total WPQD-enabled images calculation.
+* Cache remaining quota percentage in database for use in dashboard display to reduce load on API.
+* Update quota percentage in dashboard dynamically while image processing is in progress.
+* Responsive style fixes for Media Library Status graphs in admin dashboard.
+* Disabling "WP QuickDraw Features" setting now disables other UI toggles in admin dashboard.
+
+= 1.5.7 =
+* Release date: January 13, 2020
+* All images at least 768px wide will now be processed (regardless of height dimension).
+* Minor bug fixes: addressed several PHP notices.
+* Updated image progress bar logic to use countdown instead of # of total.
+* Fixed image regeneration on plugin update trigger so that it will not run on a new install.
+* Improved messaging added to Media Library "WPQD Enabled" option.
+* Responsive style fixes and added message about flushing cache in admin dashboard.
+
+= 1.5.6 =
+* Release date: January 10, 2020
+* Updated messaging in Media Library explaining when an image cannot be enabled.
+* Added functionality to conditionally prompt regeneration of image sets after plugin update.
+* Updated Media Library Status graphs in dashboard to reflect percentage of WPQD enabled images out of entire image library.
+* Improved logic in pre-render buffer to determine whether image aspect ratios match.
+* Addressed bug where "image set generated" flag was unset through Media Library options.
+
+= 1.5.5 =
+* Release date: January 7, 2020
+* Bugfix for progress bar status being reset by healthcheck cron.
+* Responsive style fixes for admin dashboard.
+* Improved implementation re: character encoding issues in pre-render buffer.
+* Display information in the image processing progress bar when monthly usage quota is exceeded.
+
+= 1.5.4 =
+* Release date: January 6, 2020
+* Improved image processing progress bar to display more detailed status.
+* Added admin notices upon initial plugin activation and when saving plugin settings.
+* Fixed character encoding issues in pre-render buffer.
+
+= 1.5.3 =
+* Release date: December 31, 2019
+* Buffer manager improvements for WooCommerce compatibility. Resolves occassional issue with PHP fatal error when initializing cart.
+* Fixed image size validation issue in pre-render buffer.
+* Disable the big image size threshold introduced in WordPress 5.3.
+
+= 1.5.2 =
+* Release date: December 30, 2019
+* Pre-render buffer improvements for WooCommerce compatibility. Resolves issue where certain WooCommerce templates were loading incorrectly with WP QuickDraw enabled.
+
+= 1.5.1 =
+* Release date: December 23, 2019
+* Media library auto-upload improvements for W3 Total Cache CDN compatibility. Plugin will now automatically push WPQD image files to remote CDN.
+
+= 1.5.0 =
+* Release date: December 18, 2019
+* Rebuilt WP Quickdraw core to use SaaS resizing functions for improved stability.
+* Redesigned admin dashboard with modified settings.
